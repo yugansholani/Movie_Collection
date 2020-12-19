@@ -17,10 +17,17 @@ def add_movie():
     })
 
 
-def list_movie(lists):
-    title = lists['title']
-    hero = lists['hero']
-    heroine = lists['heroine']
+def print_movie(movie):
+    title = movie['title']
+    hero = movie['hero']
+    heroine = movie['heroine']
+    print(f"{title.title()} have {hero.title()} & {heroine.title()} as lead actors.")
+
+
+def list_movie(films):
+    title = films['title']
+    hero = films['hero']
+    heroine = films['heroine']
     print(f"{title.title()} have {hero.title()} & {heroine.title()} as lead actors.")
 
 
@@ -29,12 +36,9 @@ def find_movie():
     search = search.lower()
     if search == 'movie':
         title = input("ENTER MOVIE NAME:  ")
-        for films in movies:
-            if title == films['title']:
-                title = films['title']
-                hero = films['hero']
-                heroine = films['heroine']
-                print(f"{title.title()} have {hero.title()} & {heroine.title()} as lead actors.")
+        for movie in movies:
+            if title == movie['title']:
+                print_movie(movie)
                 break
         else:
             print("\nMOVIE TITLE YOU ARE SEARCHING IS NOT FOUND! Try Again Later...")
@@ -42,12 +46,9 @@ def find_movie():
     elif search == 'hero':
         hero = input("ENTER HERO NAME:  ")
         a = 0
-        for actor in movies:
-            if hero == actor['hero']:
-                title = actor['title']
-                hero = actor['hero']
-                heroine = actor['heroine']
-                print(f"\n{title.title()} have {hero.title()} & {heroine.title()} as lead actors.")
+        for movie in movies:
+            if hero == movie['hero']:
+                print_movie(movie)
                 a = a + 1
                 continue
         if a == 0:
@@ -56,12 +57,9 @@ def find_movie():
     elif search == 'heroine':
         heroine = input("ENTER HEROINE NAME:  ")
         a = 0
-        for actor in movies:
-            if heroine == actor['heroine']:
-                title = actor['title']
-                hero = actor['hero']
-                heroine = actor['heroine']
-                print(f"\n{title.title()} have {hero.title()} & {heroine.title()} as lead actors.")
+        for movie in movies:
+            if heroine == movie['heroine']:
+                print_movie(movie)
                 a = a + 1
                 continue
         if a == 0:
